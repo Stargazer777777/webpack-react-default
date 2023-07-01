@@ -5,12 +5,12 @@ const app = createApp(App);
 import './scss/base';
 
 const asyncRegister = async () => {
-	const { default: store } = await import('./stores/index');
-	app.use(store);
+  const { default: store } = await import('./stores/index');
+  app.use(store);
 
-	const { default: router } = await import('./router/index');
-	app.use(router);
+  const { default: router } = await import('./router/index');
+  app.use(router);
 
-	app.mount('#app');
+  app.mount('#app');
 };
 asyncRegister();

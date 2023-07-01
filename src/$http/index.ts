@@ -3,7 +3,7 @@ import type { AxiosRequestConfig } from 'axios';
 export const httpInstance = axios.create();
 
 export type BkResponse = {
-  data: any; // 出错时这一项将没有
+  data: unknown; // 出错时这一项将没有
   code: number;
   msg: string;
   success: boolean;
@@ -15,13 +15,16 @@ export interface HttpOption {
   noAlert?: true;
 }
 
-export const $http = async (config: AxiosRequestConfig, httpOption: HttpOption) => {
+export const $http = async (
+  config: AxiosRequestConfig,
+  httpOption: HttpOption
+) => {
   try {
     const axiosResponse = await httpInstance<BkResponse>(config);
     const bkResponse = axiosResponse.data;
 
     if (!bkResponse?.success) {
-      let errTitle: string = 'Error';
+      let errTitle = 'Error';
       if (bkResponse.code === 401) {
         errTitle = 'Unauthorized';
       } else if (bkResponse.code === 403) {

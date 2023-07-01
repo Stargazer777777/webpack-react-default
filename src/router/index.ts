@@ -5,13 +5,13 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/home'
+      redirect: '/home',
     },
     {
       path: '/home',
-      component: () => import('@/views/homeFrame.vue')
-    }
-  ]
+      component: () => import('@/views/homeFrame.vue'),
+    },
+  ],
 });
 
 export default router;
