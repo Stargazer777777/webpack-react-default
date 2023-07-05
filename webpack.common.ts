@@ -2,12 +2,12 @@ import * as path from 'path';
 import * as webpack from 'webpack';
 import yaml from 'yamljs';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 import { VueLoaderPlugin } from 'vue-loader';
 import WebpackBar from 'webpackbar';
 import ESLintPlugin from 'eslint-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+
 
 const config = (env: Record<string, boolean>): webpack.Configuration => {
   const isProd = env.production;
@@ -25,8 +25,6 @@ const config = (env: Record<string, boolean>): webpack.Configuration => {
       new HtmlWebpackPlugin({
         template: './public/index.html',
       }),
-      // 抽离css
-      new MiniCssExtractPlugin({ filename: 'css/[contenthash].css' }),
       new VueLoaderPlugin(), // vue-loader插件,
       new webpack.DefinePlugin({
         __VUE_OPTIONS_API__: JSON.stringify(true),
@@ -82,7 +80,9 @@ const config = (env: Record<string, boolean>): webpack.Configuration => {
           test: /\.(s[ac]ss|css)$/i,
           use: [
             // 将 JS 字符串生成为 style 节点
-            MiniCssExtractPlugin.loader,
+            {
+              loader:'style-loader',
+            },
             // 将 CSS 转化成 CommonJS 模块,
             {
               loader: 'css-loader',

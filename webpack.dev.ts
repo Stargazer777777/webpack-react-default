@@ -14,6 +14,7 @@ export default (): DevWebpackConfig => {
 		mode: 'development',
 		devtool: 'eval-source-map',
 		devServer: {
+			hot: true,
 			static: path.resolve('./dist'),
 			port: 5173,
 			compress: true,
