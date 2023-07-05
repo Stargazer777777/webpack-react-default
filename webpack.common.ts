@@ -89,9 +89,9 @@ const config = (env: Record<string, boolean>): webpack.Configuration => {
               options: {
                 // 开启 CSS Modules
                 // modules: true,
-                modules: {
-                  localIdentName: '[local]_[hash:base64:8]',
-                },
+                // modules: {
+                //   localIdentName: '[local]_[hash:base64:8]',
+                // },
                 sourceMap: true,
               },
             },
