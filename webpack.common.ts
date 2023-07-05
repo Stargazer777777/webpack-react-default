@@ -75,33 +75,6 @@ const config = (env: Record<string, boolean>): webpack.Configuration => {
     },
     module: {
       rules: [
-        // sass/css
-        {
-          test: /\.(s[ac]ss|css)$/i,
-          use: [
-            // 将 JS 字符串生成为 style 节点
-            {
-              loader:'style-loader',
-            },
-            // 将 CSS 转化成 CommonJS 模块,
-            {
-              loader: 'css-loader',
-              options: {
-                // 开启 CSS Modules
-                // modules: true,
-                // modules: {
-                //   localIdentName: '[local]_[hash:base64:8]',
-                // },
-                sourceMap: true,
-              },
-            },
-            {
-              loader: 'sass-loader',
-              options: { sourceMap: true },
-            },
-          ],
-          sideEffects: true,
-        },
         // 加载图片
         {
           test: /\.(png|svg|jpg|jpeg|gif)$/i,

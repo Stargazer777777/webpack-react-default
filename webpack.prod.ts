@@ -61,6 +61,21 @@ export default (): webpack.Configuration => {
               },
             },
             {
+              loader: 'postcss-loader',
+              options: {
+                postcssOptions: {
+                  plugins: [
+                    [
+                      'postcss-preset-env',
+                      {
+                        // 其他选项
+                      },
+                    ],
+                  ],
+                },
+              },
+            },
+            {
               loader: 'sass-loader',
             },
           ],
