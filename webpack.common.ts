@@ -12,7 +12,7 @@ const config = (env: Record<string, boolean>): webpack.Configuration => {
   const isProd = env.production;
 
   return {
-    entry: './src/main.ts',
+    entry: './src/main.tsx',
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'js/[name].bundle.js',

@@ -1,3 +1,8 @@
-console.log('here');
+const pro = new Promise((resolve) => {
+  setTimeout(() => {
+    console.log('finish');
+    resolve(true);
+  });
+});
 
-export const a = 5;
+export { pro };
