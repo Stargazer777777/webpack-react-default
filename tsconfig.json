@@ -1,31 +1,31 @@
 {
-	"compilerOptions": {
-		"baseUrl": "./",
-		"target": "es5",
-		"module": "ESNext",
-		"lib": ["dom", "dom.iterable", "esnext"],
-		"allowJs": true,
-		"skipLibCheck": true,
-		"esModuleInterop": true,
-		"allowSyntheticDefaultImports": true,
-		"strict": true,
-		"forceConsistentCasingInFileNames": false,
-		"noFallthroughCasesInSwitch": true,
-		"moduleResolution": "node",
-		"resolveJsonModule": true,
-		"isolatedModules": true,
-		"noEmit": false,
-		"sourceMap": true,
-		"jsx": "react", // 支持jsx
-		"paths": {
-			"@/*": ["./src/*"]
-		}
-	},
-	"ts-node": {
-		"compilerOptions": {
-			"module": "CommonJS"
-		}
-	},
-	"include": ["./**/*.d.ts","./webpack.*.ts", "src/**/*", "src/**/*.vue"],
-	"exclude": ["src/**/stories.*", "src/**/.spec.*", "src/**/.mdx"]
+  "compilerOptions": {
+    "baseUrl": "./",
+    "target": "es5",
+    "module": "ESNext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "sourceMap": true,
+    "jsx": "react-jsx", // 支持jsx
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  },
+  "include": ["./**/*.d.ts", "./webpack.*.ts", "src/**/*", "src/**/*.vue"],
+  "exclude": ["src/**/stories.*", "src/**/.spec.*", "src/**/.mdx"]
 }

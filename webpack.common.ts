@@ -7,7 +7,6 @@ import WebpackBar from 'webpackbar';
 import ESLintPlugin from 'eslint-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 
-
 const config = (env: Record<string, boolean>): webpack.Configuration => {
   const isProd = env.production;
 
@@ -24,8 +23,7 @@ const config = (env: Record<string, boolean>): webpack.Configuration => {
       new HtmlWebpackPlugin({
         template: './public/index.html',
       }),
-      new webpack.DefinePlugin({
-      }),
+      new webpack.DefinePlugin({}),
       new WebpackBar(), // 美化进度条
       // eslint
       new ESLintPlugin({
@@ -43,27 +41,11 @@ const config = (env: Record<string, boolean>): webpack.Configuration => {
       }),
     ],
     resolve: {
-      extensions: [
-        '.tsx',
-        '.ts',
-        '.js',
-        '.jsx',
-        '.scss',
-        '.sass',
-        '.css',
-      ], // 引入这些文件不需要加后缀
+      extensions: ['.tsx', '.ts', '.js', '.jsx', '.scss', '.sass', '.css'], // 引入这些文件不需要加后缀
       plugins: [
         new TsconfigPathsPlugin({
           configFile: 'tsconfig.json',
-          extensions: [
-            '.ts',
-            '.tsx',
-            '.js',
-            '.jsx',
-            '.scss',
-            '.sass',
-            '.css',
-          ], // 这些文件里面可用tsconfig配置的路径别名
+          extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss', '.sass', '.css'], // 这些文件里面可用tsconfig配置的路径别名
         }),
       ],
     },
@@ -87,18 +69,15 @@ const config = (env: Record<string, boolean>): webpack.Configuration => {
             parse: yaml.parse,
           },
         },
-        // ts/tsx
+        {
+          test: /\.jsx?$/,
+          use: 'babel-loader',
+          exclude: /node_modules/, //排除 node_modules 目录
+        },
         {
           test: /\.tsx?$/,
-          use: [
-            {
-              loader: 'ts-loader',
-              options: {
-                transpileOnly: true,
-              },
-            },
-          ],
-          exclude: /node_modules/,
+          use: 'babel-loader',
+          exclude: /node_modules/, //排除 node_modules 目录
         },
       ],
     },
