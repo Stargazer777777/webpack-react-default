@@ -16,6 +16,7 @@
 		"isolatedModules": true,
 		"noEmit": false,
 		"sourceMap": true,
+		"jsx": "react", // 支持jsx
 		"paths": {
 			"@/*": ["./src/*"]
 		}
