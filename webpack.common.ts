@@ -3,7 +3,6 @@ import * as webpack from 'webpack';
 import yaml from 'yamljs';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
-import { VueLoaderPlugin } from 'vue-loader';
 import WebpackBar from 'webpackbar';
 import ESLintPlugin from 'eslint-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
@@ -25,16 +24,13 @@ const config = (env: Record<string, boolean>): webpack.Configuration => {
       new HtmlWebpackPlugin({
         template: './public/index.html',
       }),
-      new VueLoaderPlugin(), // vue-loader插件,
       new webpack.DefinePlugin({
-        __VUE_OPTIONS_API__: JSON.stringify(true),
-        __VUE_PROD_DEVTOOLS__: JSON.stringify(false),
       }),
       new WebpackBar(), // 美化进度条
       // eslint
       new ESLintPlugin({
         context: './src/',
-        extensions: ['.tsx', '.ts', '.js', '.jsx', '.vue'],
+        extensions: ['.tsx', '.ts', '.js', '.jsx'],
         fix: true,
       }),
       new CopyWebpackPlugin({
@@ -52,7 +48,6 @@ const config = (env: Record<string, boolean>): webpack.Configuration => {
         '.ts',
         '.js',
         '.jsx',
-        '.vue',
         '.scss',
         '.sass',
         '.css',
@@ -65,7 +60,6 @@ const config = (env: Record<string, boolean>): webpack.Configuration => {
             '.tsx',
             '.js',
             '.jsx',
-            '.vue',
             '.scss',
             '.sass',
             '.css',
@@ -101,15 +95,10 @@ const config = (env: Record<string, boolean>): webpack.Configuration => {
               loader: 'ts-loader',
               options: {
                 transpileOnly: true,
-                appendTsSuffixTo: [/\.vue$/],
               },
             },
           ],
           exclude: /node_modules/,
-        },
-        {
-          test: /\.vue$/,
-          use: ['vue-loader'],
         },
       ],
     },
