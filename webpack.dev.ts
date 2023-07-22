@@ -88,6 +88,16 @@ export default (): DevWebpackConfig => {
           ],
           sideEffects: true,
         },
+        {
+          test: /\.[jt]sx?$/,
+          use: {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true,
+            },
+          },
+          exclude: /node_modules/,
+        },
       ],
     },
   };
