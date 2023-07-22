@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import React from 'react';
 
 function App() {
   return (
@@ -41,8 +42,5 @@ function MyButton({
     </>
   );
 }
-
-const a = 5;
-console.log(a);
 
 export default App;

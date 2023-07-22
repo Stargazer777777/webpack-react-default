@@ -18,13 +18,4 @@ module.exports = {
       },
     ],
   ],
-  plugins: [
-    // 转译高级的ES6语法
-    [
-      '@babel/plugin-transform-runtime',
-      {
-        regenerator: true,
-      },
-    ],
-  ],
 };
