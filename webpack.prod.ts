@@ -82,7 +82,7 @@ export default (): webpack.Configuration => {
           sideEffects: true,
         },
         {
-          test: /\.(t|j)sx?$/,
+          test: /\.[jt]sx?$/,
           use: 'babel-loader',
           exclude: /node_modules/, //排除 node_modules 目录
         },
