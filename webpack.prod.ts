@@ -84,7 +84,6 @@ export default (): webpack.Configuration => {
         {
           test: /\.[jt]sx?$/,
           use: 'babel-loader',
-          exclude: /node_modules/, //排除 node_modules 目录
         },
       ],
     },

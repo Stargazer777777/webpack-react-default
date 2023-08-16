@@ -96,7 +96,6 @@ export default (): DevWebpackConfig => {
               transpileOnly: true,
             },
           },
-          exclude: /node_modules/,
         },
       ],
     },
