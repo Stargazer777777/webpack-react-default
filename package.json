@@ -1,12 +1,12 @@
 {
-  "name": "webpack-vue-default",
+  "name": "webpack-react-default",
   "version": "1.0.0",
   "description": "",
   "private": true,
   "scripts": {
-    "build": "webpack --env production --config webpack.prod.ts",
-    "dev": "webpack --config webpack.dev.ts",
-    "serve": "webpack serve --config webpack.dev.ts",
+    "build": "cross-env RUNNING_ENV=prod webpack --env production --config webpack.prod.ts",
+    "dev": "cross-env RUNNING_ENV=dev webpack --config webpack.dev.ts",
+    "serve": "cross-env RUNNING_ENV=dev webpack serve --config webpack.dev.ts",
     "lint": "eslint ./src/",
     "lint:fix": "eslint ./src/ --fix"
   },
@@ -28,6 +28,7 @@
     "@typescript-eslint/parser": "^5.61.0",
     "babel-loader": "^9.1.2",
     "copy-webpack-plugin": "^11.0.0",
+    "cross-env": "^7.0.3",
     "css-loader": "^6.8.1",
     "css-minimizer-webpack-plugin": "^5.0.1",
     "eslint": "^8.44.0",

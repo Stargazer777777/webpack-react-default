@@ -4,11 +4,7 @@ interface DevWebpackConfig extends webpack.Configuration {
   devServer?: any;
 }
 
-import YAML from 'yamljs';
-
 export default (): DevWebpackConfig => {
-  const devConfig = YAML.load(path.resolve('./.env.dev.yaml')) || {};
-  devConfig.mode = 'development';
   return {
     extends: ['webpack.common.ts'],
     mode: 'development',
@@ -36,11 +32,7 @@ export default (): DevWebpackConfig => {
         },
       },
     },
-    plugins: [
-      new webpack.DefinePlugin({
-        'import.meta.env': JSON.stringify(devConfig),
-      }),
-    ],
+    plugins: [],
     module: {
       rules: [
         // sass/css
