@@ -48,9 +48,9 @@ export default (): DevWebpackConfig => {
               loader: 'css-loader',
               options: {
                 // 开启 CSS Modules
-                // modules: {
-                //   localIdentName: '[path][name]__[local]',
-                // },
+                modules: {
+                  localIdentName: '[path][name]__[local]',
+                },
                 sourceMap: true,
               },
             },
@@ -78,15 +78,6 @@ export default (): DevWebpackConfig => {
             },
           ],
           sideEffects: true,
-        },
-        {
-          test: /\.[jt]sx?$/,
-          use: {
-            loader: 'ts-loader',
-            options: {
-              transpileOnly: true,
-            },
-          },
         },
       ],
     },

@@ -76,6 +76,10 @@ const config = (webpackEnv: Record<string, boolean>): webpack.Configuration => {
             parse: yaml.parse,
           },
         },
+        {
+          test: /\.[jt]sx?$/,
+          use: 'babel-loader',
+        },
       ],
     },
   };

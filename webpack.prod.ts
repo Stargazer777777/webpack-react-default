@@ -47,9 +47,9 @@ export default (): webpack.Configuration => {
               loader: 'css-loader',
               options: {
                 // 开启 CSS Modules
-                // modules: {
-                //   localIdentName: '[hash:base64]',
-                // },
+                modules: {
+                  localIdentName: '[hash:base64]',
+                },
               },
             },
             {
@@ -72,10 +72,6 @@ export default (): webpack.Configuration => {
             },
           ],
           sideEffects: true,
-        },
-        {
-          test: /\.[jt]sx?$/,
-          use: 'babel-loader',
         },
       ],
     },
