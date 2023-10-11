@@ -47,9 +47,8 @@ export default (): webpack.Configuration => {
               loader: 'css-loader',
               options: {
                 // 开启 CSS Modules
-                // modules: true,
                 // modules: {
-                //   localIdentName: '[local]_[hash:base64:8]',
+                //   localIdentName: '[hash:base64]',
                 // },
               },
             },

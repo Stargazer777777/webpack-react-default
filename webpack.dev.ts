@@ -48,9 +48,8 @@ export default (): DevWebpackConfig => {
               loader: 'css-loader',
               options: {
                 // 开启 CSS Modules
-                // modules: true,
                 // modules: {
-                //   localIdentName: '[local]_[hash:base64:8]',
+                //   localIdentName: '[path][name]__[local]',
                 // },
                 sourceMap: true,
               },
