@@ -12,7 +12,7 @@ export default (): DevWebpackConfig => {
     devServer: {
       hot: true,
       static: path.resolve('./dist'),
-      port: 5173,
+      port: 'auto',
       compress: true,
       historyApiFallback: true,
       client: {

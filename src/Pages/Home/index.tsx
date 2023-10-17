@@ -1,6 +1,6 @@
 import styles from './index.module.scss';
 
-export function Home() {
+export default function Home() {
   return (
     <div className={styles['container']}>
       <ul>
